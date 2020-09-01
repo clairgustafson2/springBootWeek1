@@ -1,5 +1,9 @@
 package com.clairgustafson.socialMediaApi.repository;
 
-public interface PostRepo {
+import org.springframework.data.repository.CrudRepository;
+
+import com.clairgustafson.socialMediaApi.entity.Post;
+
+public interface PostRepo extends CrudRepository<Post, Long> {
 
 }

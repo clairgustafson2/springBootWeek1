@@ -1,5 +1,9 @@
 package com.clairgustafson.socialMediaApi.repository;
 
-public interface CommentRepo {
+import org.springframework.data.repository.CrudRepository;
+
+import com.clairgustafson.socialMediaApi.entity.Comment;
+
+public interface CommentRepo extends CrudRepository<Comment, Long> {
 
 }
