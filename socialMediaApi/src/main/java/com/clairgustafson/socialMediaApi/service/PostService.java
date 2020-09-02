@@ -23,6 +23,10 @@ public class PostService {
 		return repo.findAll();
 	}
 	
+	public Post getPost(Long id) {
+		return repo.findById(id).orElseThrow();
+	}
+	
 	public Post updatePost(Post post, Long id) throws Exception{
 		Post foundPost = repo.findById(id).orElseThrow();
 		if (foundPost == null) {
