@@ -27,15 +27,16 @@ public class UserService {
 	}
 	
 	public Following follow(Long userId, Long followId) throws Exception {
-	User user = repo.findById(userId).orElseThrow();
-	User follow = repo.findById(followId).orElseThrow();
-	if (user == null || follow ==null) {
-		throw new Exception("User does not exist.");
+		User user = repo.findById(userId).orElseThrow();
+		User follow = repo.findById(followId).orElseThrow();
+		if (user == null || follow ==null) {
+			throw new Exception("User does not exist.");
 	}
-	user.getFollowing().add(follow);
-	repo.save(user);
-	return new Following(user);
+		user.getFollowing().add(follow);
+		repo.save(user);
+		return new Following(user);
 }
+	
 	public Following getFollowedUsers(Long userId) throws Exception {
 		User user = repo.findById(userId).orElseThrow();
 		if (user == null) {

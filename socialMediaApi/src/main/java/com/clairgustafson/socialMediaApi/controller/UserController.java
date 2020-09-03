@@ -50,6 +50,15 @@ public class UserController {
 		}
 	}
 	
+	@RequestMapping(value = "/{id}/follows/{followId}", method = RequestMethod.POST)
+	public ResponseEntity<Object> follow(@PathVariable Long id, @PathVariable Long followId){
+		try {
+			return new ResponseEntity<Object> (service.follow(id, followId), HttpStatus.CREATED);
+		} catch (Exception e) {
+			return new ResponseEntity<Object> (e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+	}
+	
 	@RequestMapping(value= "/{id}/profilePicture", method= RequestMethod.POST)
 	public ResponseEntity<Object> singleFileUpload(@PathVariable Long id, @RequestParam("file") MultipartFile file) {
 		if (file.isEmpty()) {
@@ -66,5 +75,4 @@ public class UserController {
 			return new ResponseEntity<Object>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
 }
