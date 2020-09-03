@@ -59,7 +59,7 @@ public class UserController {
 		}
 	}
 	
-	@RequestMapping(value= "/{id}/profilePicture", method= RequestMethod.POST)
+	@RequestMapping(value="/{id}/profilePicture", method= RequestMethod.POST)
 	public ResponseEntity<Object> singleFileUpload(@PathVariable Long id, @RequestParam("file") MultipartFile file) {
 		if (file.isEmpty()) {
 			return new ResponseEntity<Object>("Please upload a file.", HttpStatus.BAD_REQUEST);

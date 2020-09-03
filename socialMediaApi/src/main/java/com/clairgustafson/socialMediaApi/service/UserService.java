@@ -53,6 +53,4 @@ public class UserService {
 		user.setProfilePictureUrl(url);
 		return repo.save(user);
 	}
-	
-
 }

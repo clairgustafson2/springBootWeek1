@@ -27,7 +27,7 @@ public class PostService {
 		return repo.findById(id).orElseThrow();
 	}
 	
-	public Post updatePost(Post post, Long id) throws Exception{
+	public Post updatePost(Post post, Long id) throws Exception {
 		Post foundPost = repo.findById(id).orElseThrow();
 		if (foundPost == null) {
 			throw new Exception("Post not found.");
@@ -45,5 +45,4 @@ public class PostService {
 		post.setUser(user);
 		return repo.save(post);
 	}
-
 }
